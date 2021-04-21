@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit tag</title>
+</head>
+<body>
+    <h1>Edit a tag</h1>
+    <form action="/tags/{{the_tag.id}}/edit" method="POST">
+        <label for="">
+            Name
+            <input type="text" name="update_tag" value="{{the_tag.name}}">
+        </label><br>
+        <button><a href="/tags">Cancel</a></button>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+</head>
+<body>
+    <form action="/posts/{{post.id}}/delete" method="POST">
+        <h2>{{post.title}}</h2>
+        <p>
+            {{post.content}}
+        </p>
+        <span>By {{post.user.first_name}} {{post.user.last_name}} at {{post.created_at}}</span><br>
+        <em>Tags:
+            {% for tag in tags%}
+            <span>{{tag.name}}</span>
+            {% endfor %}
+        </em><br>
+
+        <button><a href="/users/{{post.id}}">Cancel</a></button>
+        <button><a href="/posts/{{post.id}}/edit">Edit</a></button>
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

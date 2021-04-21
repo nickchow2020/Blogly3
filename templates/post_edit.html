@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post edit</title>
+</head>
+<body>
+    <h2>Edit Post</h2>
+    <form action="/posts/{{post.id}}/edit" method="POST">
+        <label for="title">Title
+            <input type="text" name='title' id='title' value="{{post.title}}">
+        </label><br>
+
+        <label for="content">Post Content
+            <textarea name="content" id="content">{{post.content}}</textarea>
+        </label><br>
+
+        {% for tag in tags %}
+        {% if tag.id in current_tag%}
+        <div>
+            <input type="checkbox" name="chkbox" value="{{tag.id}}" id={{tag.name}} checked>
+            <label for="{{tag.name}}">{{tag.name}}</label>
+        </div><br>
+        {% else %}
+        <div>
+            <input type="checkbox" name="chkbox" value="{{tag.id}}" id={{tag.name}}>
+            <label for="{{tag.name}}">{{tag.name}}</label>
+        </div><br>
+        {% endif %}
+        {% endfor %}
+
+        <button><a href="/posts/{{post.id}}">Cancel</a></button>
+        <input type="submit" value="Save Edit">
+    </form>
+</body>
+</html>
